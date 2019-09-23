@@ -1,0 +1,48 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\View\Options */
+
+?>
+
+<?php $_options = $block->decorateArray($block->getOptions()) ?>
+<?php if (count($_options)):?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "priceOptions": {
+                "optionConfig": <?php /* @escapeNotVerified */ echo $block->getJsonConfig()?>,
+                "controlContainer": ".field2",
+                "priceHolderSelector": "[data-role=priceBox]"
+            }
+        }
+    }
+</script>
+    <?php foreach ($_options as $_option): ?>
+        <?php echo $block->getOptionHtml($_option) ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+<script>
+ require([
+            'jquery',
+            'selectbox/jquery.selectbox-0.2'
+        ], function ($) {
+	    $('.product-custom-option').selectbox();
+      $('.product-custom-option').removeAttr("style");
+      $('.product-custom-option').css({"visibility": "hidden","position":"fixed"});
+  });
+</script>
+<script>
+  jQuery(function($){
+	  $('.product-options-wrapper .field2 h6 a').each(function(){
+		$(this).mouseover(function(){
+		  var cls= $(this).attr('data-class');
+		  $(".tooltip-clone").fadeOut(300);
+		  $("."+cls).fadeIn(300);
+		});
+		$(this).mouseout(function(){
+			$(".tooltip-clone").fadeOut(300);
+		});
+	  });
+  });
+</script>

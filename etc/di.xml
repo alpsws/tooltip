@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options" type="Alps\Tooltip\Block\Adminhtml\Product\Edit\Tab\Options" />
+      <preference for="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Option" type="Alps\Tooltip\Block\Adminhtml\Product\Edit\Tab\Options\Option" />
+	<preference for="Psr\Log\LoggerInterface" type="Magento\Framework\Logger\Monolog" />
+	<preference for="Magento\Catalog\Block\Adminhtml\Product\Attribute\Edit\Tab\Advanced" type="Alps\Tooltip\Block\Adminhtml\Product\Attribute\Edit\Tab\Advanced" />
+</config>

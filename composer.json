@@ -1,0 +1,24 @@
+{
+    "name": "alps/tooltip",
+    "description": "Magento 2 Attribute Tooltip module",
+    "type": "magento2-module",
+    "license": "proprietary",
+	"version": "1.0.2",
+    "authors": [
+        {
+            "name": "Alps",
+            "email": "info@alpswebsolutions.com",
+			"homepage": "https://www.alpswebsolutions.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Alps\\Tooltip\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,27 @@
+<?php /* @var $block \Magento\Catalog\Block\Product\View\Options\Type\Select */ ?>
+<?php
+
+$_option = $block->getOption();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$model = $objectManager->create('Alps\Tooltip\Model\AlpsTooltip');
+$model->load($_option->getId(),'option_id');
+$product_tooltip_description = $model->getProductTooltipDescription();
+
+$class = ($_option->getIsRequire()) ? ' required' : '';
+?>
+<div class="field2<?php /* @escapeNotVerified */ echo $class; ?>">
+    <label for="select_<?php /* @escapeNotVerified */ echo $_option->getId() ?>">
+        <?php echo  $block->escapeHtml($_option->getTitle()) ?>
+    </label>
+    <h6>Explain<a data-class="tooltip-div<?php /* @escapeNotVerified */ echo $_option->getId() ?>" class="tooltip-a<?php /* @escapeNotVerified */ echo $_option->getId() ?>" href="javascript:void(0)"></a></h6>
+    <div style="display:none;" class="tooltip-clone tooltip-div<?php /* @escapeNotVerified */ echo $_option->getId() ?>"><span><?php echo $product_tooltip_description ?></span> </div>
+    <div class="clear"></div>
+    <div class="control dropdown">
+        <?php echo $block->getValuesHtml() ?>
+        <?php if ($_option->getIsRequire()): ?>
+            <?php if ($_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_RADIO || $_option->getType() == \Magento\Catalog\Model\Product\Option::OPTION_TYPE_CHECKBOX): ?>
+                <span id="options-<?php /* @escapeNotVerified */ echo $_option->getId() ?>-container"></span>
+            <?php endif; ?>
+        <?php endif;?>
+    </div>
+</div>
